@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const setSession = (user: any) => {
   localStorage.setItem("user", JSON.stringify(user));
 };
