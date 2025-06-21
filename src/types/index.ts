@@ -6,8 +6,9 @@ export interface User {
 
 export interface Product {
   id: string
-  name: string
-  price: number
+  nama_produk: string
+  harga_satuan: number
+  quantity: number
   description?: string
   created_at?: string
   updated_at?: string

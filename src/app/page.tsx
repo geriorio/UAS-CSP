@@ -1,15 +1,14 @@
-'use client';
+"use client"
 
-import './globals.css';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 
-export default function Home(){
-  const router = useRouter();
+export default function Page() {
+  const router = useRouter()
 
   useEffect(() => {
-    router.replace('/signin');
-  }, []);
+    router.replace("/signin")
+  }, [router])
 
-  return null;
+  return null
 }
