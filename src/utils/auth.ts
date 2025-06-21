@@ -1,15 +1,28 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+import type { User } from "@/types"
 
-export const setSession = (user: any) => {
-  localStorage.setItem("user", JSON.stringify(user));
-};
+export const setSession = (user: User): void => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("user", JSON.stringify(user))
+  }
+}
 
-export const getSession = () => {
-  if (typeof window === "undefined") return null;
-  const user = localStorage.getItem("user");
-  return user ? JSON.parse(user) : null;
-};
+export const getSession = (): User | null => {
+  if (typeof window !== "undefined") {
+    const userStr = localStorage.getItem("user")
+    if (userStr) {
+      try {
+        return JSON.parse(userStr) as User
+      } catch (error) {
+        console.error("Error parsing user session:", error)
+        return null
+      }
+    }
+  }
+  return null
+}
 
-export const clearSession = () => {
-  localStorage.removeItem("user");
-};
+export const clearSession = (): void => {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem("user")
+  }
+}
