@@ -1,7 +1,7 @@
 export interface User {
   id: string
   username: string
-  role: string
+  role: "user" | "admin"
 }
 
 export interface Product {
